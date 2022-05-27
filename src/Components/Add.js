@@ -11,24 +11,25 @@ const Add = () => {
     const subdata=()=>{
         const data={"name":name,"date":date,"venue":venue,"organiser":organiser,"contact":contact}
         console.log(data)
-    axios.post("https://mylinkurcodesapp.herokuapp.com/addcourse",data).then(
-        (response)=>
-        {
-            console.log(response.data)
-            if(response.data.status=="success")
-            {
-                alert("successfully inserted")
+        axios.post("http://localhost:4000/api/eventmanage",data).then(
+            (response)=>{
+                console.log(response.data)
+                if(response.data.status=="success")
+                {
+                    alert("successfully inserted")
+
+                }
+                else
+                {
+                alert("failed")
+                }
             }
-            else
-            {
-                alert("failed ")
-            }
-        }
-        )}
-  return (
+        )
+    }
+    return (
     <div>
-<Header/>
-<div className="container">
+        <Header/>
+        <div className="container">
     <div className="row">
         <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
             <dv className="row g-3">
